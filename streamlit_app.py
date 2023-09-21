@@ -15,7 +15,8 @@ excel_engine = 'openpyxl'
 
 # Read the dataset from the GitHub URL into a DataFrame
 try:
-    df = pd.read_excel(github_url, engine=excel_engine)
+    df = pd.read_excel(github_url, engine='openpyxl')
+
     st.write("## Data Preview")
     st.write(df)
 except Exception as e:
