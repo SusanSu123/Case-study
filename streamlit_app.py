@@ -1,21 +1,16 @@
-
-
-
 import streamlit as st
 import pandas as pd
 
 # Set the title of your Streamlit app
 st.title("Data Science App")
 
-# Define the path to the local Excel file
-file_path = "/Users/susan/RMIT/3. S2 2023/Case Studies in Data Science/WIL Project/vic_data.xlsx"
+# Define the relative path to the dataset in the same directory as your .py file
+file_path = "vic_data.xlsx"
 
-# Check if the file exists at the specified path
-if st.button("Load Local Excel File"):
-    try:
-        df = pd.read_excel(file_path)
-        st.success("File loaded successfully!")
-    except Exception as e:
-        st.error(f"An error occurred: {e}")
-
-# Now you can work with the "df" DataFrame loaded from the local Excel file.
+# Read the local dataset into a DataFrame
+try:
+    df = pd.read_excel(file_path)
+    st.write("## Data Preview")
+    st.write(df)
+except Exception as e:
+    st.error(f"An error occurred: {e}")
